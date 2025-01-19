@@ -1,8 +1,10 @@
 name: Build debug
 
 on:
+    workflow_dispatch:
     push:
-        branches: [ main ]
+        branches:
+          - "*"
 
 jobs:
     clone_setup_java:
