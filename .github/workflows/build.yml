@@ -11,11 +11,6 @@ jobs:
         name: Build APK
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v4
-          - uses: actions/setup-java@v4
-            with:
-                distribution: 'zulu'
-                java-version: '17'
           - name: Cleanup some space
             uses: easimon/maximize-build-space@master
             with:
@@ -23,6 +18,12 @@ jobs:
                 remove-haskell: 'true'
                 remove-codeql: 'true'
                 remove-docker-images: 'true'
+                root-reserve-mb: 40960
+          - uses: actions/checkout@v4
+          - uses: actions/setup-java@v4
+            with:
+                distribution: 'zulu'
+                java-version: '17'
           - run: df -h
           - run: chmod +x gradlew
           - run: ./gradlew assembleDebug --info
