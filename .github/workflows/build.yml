@@ -7,8 +7,8 @@ on:
           - "*"
 
 jobs:
-    clone_setup_java:
-        name: Clone repo and setup java
+    build_apk:
+        name: Build APK
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
@@ -16,10 +16,6 @@ jobs:
             with:
                 distribution: 'zulu'
                 java-version: '16'
-    build_apk:
-        name: Build apk
-        runs-on: ubuntu-latest
-        steps:
           - run: chmod +x gradlew
           - run: ./gradlew assembleDebug --info
           - uses: actions/upload-artifact@v4
