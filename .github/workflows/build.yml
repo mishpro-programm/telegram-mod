@@ -1,6 +1,8 @@
 name: Build debug
 
 on:
+    push
+        branches: [ main ]
 
 jobs:
     clone_setup_java:
