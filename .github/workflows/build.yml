@@ -16,6 +16,7 @@ jobs:
             with:
                 distribution: 'zulu'
                 java-version: '17'
+          - run: df -h
           - run: chmod +x gradlew
           - run: ./gradlew assembleDebug --info
           - uses: actions/upload-artifact@v4
