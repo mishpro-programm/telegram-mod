@@ -16,6 +16,13 @@ jobs:
             with:
                 distribution: 'zulu'
                 java-version: '17'
+          - name: Cleanup some space
+            uses: easimon/maximize-build-space@master
+            with:
+                remove-dotnet: 'true'
+                remove-haskell: 'true'
+                remove-codeql: 'true'
+                remove-docker-images: 'true'
           - run: df -h
           - run: chmod +x gradlew
           - run: ./gradlew assembleDebug --info
