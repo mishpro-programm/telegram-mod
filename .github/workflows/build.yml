@@ -18,7 +18,8 @@ jobs:
                 remove-haskell: 'true'
                 remove-codeql: 'true'
                 remove-docker-images: 'true'
-                root-reserve-mb: 36864
+                root-reserve-mb: 32768
+                temp-reserve-mb: 65536
           - uses: actions/checkout@v4
           - uses: actions/setup-java@v4
             with:
